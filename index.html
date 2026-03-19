@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>美式英語 IPA 國際音標指南 — Christina Yu English</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --muted: #6b7a90;
+    --text: #1b2430;
+    --line: #e3e8f2;
+    --accent: #111827;
+    --btn: #eef2f7;
+    --btn-border: #d5dbe7;
+    --btn-hover: #e1e7f2;
+    --vowel: #c92a2a;
+    --cons: #3a84f5;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans TC', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 24px;
+  }
+
+  .wrap { max-width: 700px; margin: 0 auto; }
+
+  .main-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    text-align: center;
+    margin: 0 0 24px 0;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin: 18px 0 10px 0;
+    color: var(--muted);
+    padding-left: 16px;
+  }
+
+  /* --- Info box --- */
+  .info-box {
+    background: var(--btn);
+    border: 1px solid var(--btn-border);
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .info-box p { margin: 0; }
+  .info-box p + p { margin-top: 8px; }
+
+  .info-table {
+    width: 100%;
+    max-width: 400px;
+    border-collapse: collapse;
+    font-size: 15px;
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 8px 0;
+  }
+  .info-table th,
+  .info-table td {
+    text-align: left;
+    padding: 8px 10px;
+    border-top: 1px solid var(--line);
+  }
+  .info-table thead th {
+    border-top: none;
+    font-weight: 600;
+    color: var(--muted);
+    background: #fff;
+  }
+  .info-table td:nth-child(2),
+  .info-table td:nth-child(3) {
+    font-family: 'Noto Sans', sans-serif;
+  }
+
+  /* --- Cards --- */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(18, 28, 45, .04);
+    margin-bottom: 22px;
+  }
+
+  /* --- Tables --- */
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    font-weight: 600;
+    color: var(--muted);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: middle;
+  }
+  tbody tr:nth-child(odd) { background: #fafbff; }
+
+  .ipa {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+  .word {
+    font-weight: 600;
+    letter-spacing: .2px;
+    font-size: 16px;
+  }
+  .wipa {
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--muted);
+    font-weight: 500;
+    margin-left: 6px;
+    font-size: 14px;
+  }
+  .vowel-highlight { color: var(--vowel); }
+  .cons-highlight  { color: var(--cons); }
+
+  /* --- Play button --- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid var(--btn-border);
+    background: var(--btn);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background .15s;
+  }
+  .btn:hover { background: var(--btn-hover); }
+  .btn.playing {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* --- Footer --- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 16px 12px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 8px;
+  }
+  footer p { margin: 0; }
+  footer p + p { margin-top: 4px; }
+  footer a { color: var(--muted); text-decoration: underline; }
+
+  /* --- Desktop column widths --- */
+  @media (min-width: 769px) {
+    .card table { table-layout: fixed; }
+    .card table td:nth-child(1) { width: 15%; }
+    .card table td:nth-child(2) { width: 15%; }
+    .card table td:nth-child(3) { width: 45%; }
+    .card table td:nth-child(4) { width: 25%; }
+  }
+
+  /* --- Mobile --- */
+  @media (max-width: 768px) {
+    body { padding: 16px; }
+    .main-title { margin-top: 16px; }
+    .word { white-space: normal; }
+    .wipa { display: block; margin-left: 0; margin-top: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="main-title">美式英語 IPA 國際音標指南</h1>
+
+  <!-- KK vs IPA 說明 -->
+  <div class="info-box">
+    <p>IPA（國際音標）是台灣所使用的 KK 音標的原版，兩者有 3 點不同：</p>
+    <table class="info-table">
+      <thead>
+        <tr><th>不同點</th><th>KK</th><th>IPA</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>長母音 a</td><td>/e/</td><td>/eɪ/ ✅ 雙母音</td></tr>
+        <tr><td>長母音 o</td><td>/o/</td><td>/oʊ/ ✅ 雙母音</td></tr>
+        <tr><td>詞尾 /i/（happ<em><strong>y</strong></em>）</td><td>/ɪ/</td><td>/i/ ✅ 長音</td></tr>
+      </tbody>
+    </table>
+    <p>學會使用 IPA 能幫助正確發音，並與世界接軌——<br>
+    多數國家的學校和劍橋、牛津、朗文等英系字典都採用 IPA。<br>
+    本表為美式發音版本，與 KK 一樣不使用長音符號（ː），因此與英式 IPA 圖表略有不同。</p>
+  </div>
+
+  <!-- ==================== 母音 ==================== -->
+  <div class="card">
+    <h2>17 Vowels 母音</h2>
+    <table aria-label="Vowels">
+      <thead><tr><th>音標</th><th></th><th>例字</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/i/</td>
+          <td><button class="btn play" data-ipa="i" data-src="audio/phonemes/e_long.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">ee</span>t <span class="wipa">/bit/</span></span></td>
+          <td><button class="btn play" data-word="beet" data-src="audio/words/beet.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/ɪ/</td>
+          <td><button class="btn play" data-ipa="ɪ" data-src="audio/phonemes/i_short.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">i</span>t <span class="wipa">/bɪt/</span></span></td>
+          <td><button class="btn play" data-word="bit" data-src="audio/words/bit.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/ɛ/</td>
+          <td><button class="btn play" data-ipa="ɛ" data-src="audio/phonemes/e_short.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">e</span>t <span class="wipa">/bɛt/</span></span></td>
+          <td><button class="btn play" data-word="bet" data-src="audio/words/bet.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/æ/</td>
+          <td><button class="btn play" data-ipa="æ" data-src="audio/phonemes/a_short.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">a</span>t <span class="wipa">/bæt/</span></span></td>
+          <td><button class="btn play" data-word="bat" data-src="audio/words/bat.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/u/</td>
+          <td><button class="btn play" data-ipa="u" data-src="audio/phonemes/u_long.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">oo</span>t <span class="wipa">/but/</span></span></td>
+          <td><button class="btn play" data-word="boot" data-src="audio/words/boot.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/ʊ/</td>
+          <td><button class="btn play" data-ipa="ʊ" data-src="audio/phonemes/oo.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">oo</span>k <span class="wipa">/bʊk/</span></span></td>
+          <td><button class="btn play" data-word="book" data-src="audio/words/book.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/ɔ/</td>
+          <td><button class="btn play" data-ipa="ɔ" data-src="audio/phonemes/aw.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">ough</span>t <span class="wipa">/bɔt/</span></span></td>
+          <td><button class="btn play" data-word="bought" data-src="audio/words/bought.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/ɑ/</td>
+          <td><button class="btn play" data-ipa="ɑ" data-src="audio/phonemes/o_short.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">o</span>t <span class="wipa">/bɑt/</span></span></td>
+          <td><button class="btn play" data-word="bot" data-src="audio/words/bot.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/ʌ/</td>
+          <td><button class="btn play" data-ipa="ʌ" data-src="audio/phonemes/u_short.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">u</span>t <span class="wipa">/bʌt/</span></span></td>
+          <td><button class="btn play" data-word="but" data-src="audio/words/but.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/ə/</td>
+          <td><button class="btn play" data-ipa="ə" data-src="audio/phonemes/schwa.mp3">▶</button></td>
+          <td><span class="word"><span class="vowel-highlight">a</span>bout <span class="wipa">/əˈbaʊt/</span></span></td>
+          <td><button class="btn play" data-word="about" data-src="audio/words/about.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/ɝ/</td>
+          <td><button class="btn play" data-ipa="ɝ" data-src="audio/phonemes/er_stressed.mp3">▶</button></td>
+          <td><span class="word">B<span class="vowel-highlight">ur</span>t <span class="wipa">/bɝt/</span></span></td>
+          <td><button class="btn play" data-word="Burt" data-src="audio/words/burt.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/ɚ/</td>
+          <td><button class="btn play" data-ipa="ɚ" data-src="audio/phonemes/er_unstressed.mp3">▶</button></td>
+          <td><span class="word">bitt<span class="vowel-highlight">er</span> <span class="wipa">/ˈbɪtɚ/</span></span></td>
+          <td><button class="btn play" data-word="bitter" data-src="audio/words/bitter.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/eɪ/</td>
+          <td><button class="btn play" data-ipa="eɪ" data-src="audio/phonemes/a_long.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">ai</span>t <span class="wipa">/beɪt/</span></span></td>
+          <td><button class="btn play" data-word="bait" data-src="audio/words/bait.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/aɪ/</td>
+          <td><button class="btn play" data-ipa="aɪ" data-src="audio/phonemes/i_long.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">i</span>te <span class="wipa">/baɪt/</span></span></td>
+          <td><button class="btn play" data-word="bite" data-src="audio/words/bite.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/oʊ/</td>
+          <td><button class="btn play" data-ipa="oʊ" data-src="audio/phonemes/o_long.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">oa</span>t <span class="wipa">/boʊt/</span></span></td>
+          <td><button class="btn play" data-word="boat" data-src="audio/words/boat.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/ɔɪ/</td>
+          <td><button class="btn play" data-ipa="ɔɪ" data-src="audio/phonemes/oi.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">oy</span> <span class="wipa">/bɔɪ/</span></span></td>
+          <td><button class="btn play" data-word="boy" data-src="audio/words/boy.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--vowel)">/aʊ/</td>
+          <td><button class="btn play" data-ipa="aʊ" data-src="audio/phonemes/ow.mp3">▶</button></td>
+          <td><span class="word">b<span class="vowel-highlight">ou</span>t <span class="wipa">/baʊt/</span></span></td>
+          <td><button class="btn play" data-word="bout" data-src="audio/words/bout.mp3">▶</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 子音 ==================== -->
+  <div class="card">
+    <h2>24 Consonants 子音</h2>
+    <table aria-label="Consonants">
+      <thead><tr><th>音標</th><th></th><th>例字</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/p/</td>
+          <td><button class="btn play" data-ipa="p" data-src="audio/phonemes/c1.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">p</span>at <span class="wipa">/pæt/</span></span></td>
+          <td><button class="btn play" data-word="pat" data-src="audio/words/pat.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/b/</td>
+          <td><button class="btn play" data-ipa="b" data-src="audio/phonemes/c2.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">b</span>at <span class="wipa">/bæt/</span></span></td>
+          <td><button class="btn play" data-word="bat" data-src="audio/words/bat.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/t/</td>
+          <td><button class="btn play" data-ipa="t" data-src="audio/phonemes/c3.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">t</span>oe <span class="wipa">/toʊ/</span></span></td>
+          <td><button class="btn play" data-word="toe" data-src="audio/words/toe.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/d/</td>
+          <td><button class="btn play" data-ipa="d" data-src="audio/phonemes/c4.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">d</span>ea<span class="cons-highlight">d</span> <span class="wipa">/dɛd/</span></span></td>
+          <td><button class="btn play" data-word="dead" data-src="audio/words/dead.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/k/</td>
+          <td><button class="btn play" data-ipa="k" data-src="audio/phonemes/c5.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">c</span>at <span class="wipa">/kæt/</span></span></td>
+          <td><button class="btn play" data-word="cat" data-src="audio/words/cat.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/g/</td>
+          <td><button class="btn play" data-ipa="g" data-src="audio/phonemes/c6.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">g</span>ot <span class="wipa">/ɡɑt/</span></span></td>
+          <td><button class="btn play" data-word="got" data-src="audio/words/got.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/f/</td>
+          <td><button class="btn play" data-ipa="f" data-src="audio/phonemes/c7.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">f</span>ace <span class="wipa">/feɪs/</span></span></td>
+          <td><button class="btn play" data-word="face" data-src="audio/words/face.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/v/</td>
+          <td><button class="btn play" data-ipa="v" data-src="audio/phonemes/c8.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">v</span>et <span class="wipa">/vɛt/</span></span></td>
+          <td><button class="btn play" data-word="vet" data-src="audio/words/vet.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/θ/</td>
+          <td><button class="btn play" data-ipa="θ" data-src="audio/phonemes/c9.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">th</span>ing <span class="wipa">/θɪŋ/</span></span></td>
+          <td><button class="btn play" data-word="thing" data-src="audio/words/thing.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/ð/</td>
+          <td><button class="btn play" data-ipa="ð" data-src="audio/phonemes/c10.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">th</span>is <span class="wipa">/ðɪs/</span></span></td>
+          <td><button class="btn play" data-word="this" data-src="audio/words/this.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/s/</td>
+          <td><button class="btn play" data-ipa="s" data-src="audio/phonemes/c11.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">s</span>ell <span class="wipa">/sɛl/</span></span></td>
+          <td><button class="btn play" data-word="sell" data-src="audio/words/sell.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/z/</td>
+          <td><button class="btn play" data-ipa="z" data-src="audio/phonemes/c12.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">z</span>ebra <span class="wipa">/ˈzibrə/</span></span></td>
+          <td><button class="btn play" data-word="zebra" data-src="audio/words/zebra.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/ʃ/</td>
+          <td><button class="btn play" data-ipa="ʃ" data-src="audio/phonemes/c13.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">sh</span>ip <span class="wipa">/ʃɪp/</span></span></td>
+          <td><button class="btn play" data-word="ship" data-src="audio/words/ship.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/ʒ/</td>
+          <td><button class="btn play" data-ipa="ʒ" data-src="audio/phonemes/c14.mp3">▶</button></td>
+          <td><span class="word">bei<span class="cons-highlight">ge</span> <span class="wipa">/beɪʒ/</span></span></td>
+          <td><button class="btn play" data-word="beige" data-src="audio/words/beige.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/tʃ/</td>
+          <td><button class="btn play" data-ipa="tʃ" data-src="audio/phonemes/c15.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">ch</span>air <span class="wipa">/tʃɛr/</span></span></td>
+          <td><button class="btn play" data-word="chair" data-src="audio/words/chair.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/dʒ/</td>
+          <td><button class="btn play" data-ipa="dʒ" data-src="audio/phonemes/c16.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">j</span>oke <span class="wipa">/dʒoʊk/</span></span></td>
+          <td><button class="btn play" data-word="joke" data-src="audio/words/joke.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/h/</td>
+          <td><button class="btn play" data-ipa="h" data-src="audio/phonemes/c17.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">h</span>appy <span class="wipa">/ˈhæpi/</span></span></td>
+          <td><button class="btn play" data-word="happy" data-src="audio/words/happy.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/m/</td>
+          <td><button class="btn play" data-ipa="m" data-src="audio/phonemes/c18.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">m</span>o<span class="cons-highlight">m</span> <span class="wipa">/mɑm/</span></span></td>
+          <td><button class="btn play" data-word="mom" data-src="audio/words/mom.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/n/</td>
+          <td><button class="btn play" data-ipa="n" data-src="audio/phonemes/c19.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">n</span>eed <span class="wipa">/nid/</span></span></td>
+          <td><button class="btn play" data-word="need" data-src="audio/words/need.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/ŋ/</td>
+          <td><button class="btn play" data-ipa="ŋ" data-src="audio/phonemes/c20.mp3">▶</button></td>
+          <td><span class="word">si<span class="cons-highlight">ng</span> <span class="wipa">/sɪŋ/</span></span></td>
+          <td><button class="btn play" data-word="sing" data-src="audio/words/sing.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/l/</td>
+          <td><button class="btn play" data-ipa="l" data-src="audio/phonemes/c21.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">l</span>ean <span class="wipa">/lin/</span></span></td>
+          <td><button class="btn play" data-word="lean" data-src="audio/words/lean.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/r/</td>
+          <td><button class="btn play" data-ipa="r" data-src="audio/phonemes/c22.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">r</span>ed <span class="wipa">/rɛd/</span></span></td>
+          <td><button class="btn play" data-word="red" data-src="audio/words/red.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/w/</td>
+          <td><button class="btn play" data-ipa="w" data-src="audio/phonemes/c23.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">w</span>ine <span class="wipa">/waɪn/</span></span></td>
+          <td><button class="btn play" data-word="wine" data-src="audio/words/wine.mp3">▶</button></td>
+        </tr>
+        <tr>
+          <td class="ipa" style="color:var(--cons)">/j/</td>
+          <td><button class="btn play" data-ipa="j" data-src="audio/phonemes/c24.mp3">▶</button></td>
+          <td><span class="word"><span class="cons-highlight">y</span>et <span class="wipa">/jɛt/</span></span></td>
+          <td><button class="btn play" data-word="yet" data-src="audio/words/yet.mp3">▶</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== Footer ==================== -->
+  <footer>
+    <div style="margin-bottom:12px;">
+      <a href="mailto:mamahowma@gmail.com" aria-label="Email" style="color:var(--muted);text-decoration:none;font-size:18px;">✉️</a>&emsp;
+      <a href="https://www.facebook.com/mamahowma" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="color:var(--muted);text-decoration:none;font-size:18px;">📘</a>&emsp;
+      <a href="https://portaly.cc/mamahowma/support" target="_blank" rel="noopener noreferrer" aria-label="Support" style="color:var(--muted);text-decoration:none;font-size:18px;">☕</a>
+    </div>
+    <div style="margin-bottom:12px;">
+      <a href="https://portaly.cc/mamahowma/support" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:8px 18px;background:#f3f4f6;color:#374151;text-decoration:none;border-radius:20px;font-size:14px;border:1px solid var(--btn-border);">喜歡這個免費工具嗎？☕ 請杯咖啡鼓勵我</a>
+    </div>
+    <div style="font-size:13px;color:var(--muted);margin:10px 0 6px;">🔡 More English Tools:</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 auto 12px;padding:0 8px;">
+      <a href="https://jinshuanyu.github.io/word-mapper/" style="display:inline-block;padding:6px 14px;background:#dbeafe;color:#1d4ed8;text-decoration:none;border-radius:20px;font-size:14px;">單字地圖</a>
+      <a href="https://jinshuanyu.github.io/Dolch-List-by-spelling-patterns/" style="display:inline-block;padding:6px 14px;background:#dbeafe;color:#1d4ed8;text-decoration:none;border-radius:20px;font-size:14px;">Dolch 高頻詞拼讀</a>
+      <a href="https://jinshuanyu.github.io/vowel-detective/" style="display:inline-block;padding:6px 14px;background:#dbeafe;color:#1d4ed8;text-decoration:none;border-radius:20px;font-size:14px;">母音偵探</a>
+      <a href="https://jinshuanyu.github.io/grow-a-sentence/" style="display:inline-block;padding:6px 14px;background:#dbeafe;color:#1d4ed8;text-decoration:none;border-radius:20px;font-size:14px;">句子擴寫</a>
+      <a href="https://jinshuanyu.github.io/englishplaylistsforkids/" style="display:inline-block;padding:6px 14px;background:#dbeafe;color:#1d4ed8;text-decoration:none;border-radius:20px;font-size:14px;">英語影片片單</a>
+    </div>
+    <p>本頁面之文字內容與設計由 Christina Yu 製作，保留所有權利。<br>
+    未經授權不得複製、轉載或作商業用途。</p>
+    <p>音檔由 Azure AI 語音合成生成。</p>
+    <p>© 2025 Christina Yu. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+// Audio playback with visual feedback
+let currentAudio = null;
+let currentBtn = null;
+
+document.querySelectorAll('.btn.play').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Stop previous
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      if (currentBtn) currentBtn.classList.remove('playing');
+    }
+
+    const src = btn.getAttribute('data-src');
+    const audio = new Audio(src);
+    audio.playbackRate = 0.75;
+    currentAudio = audio;
+    currentBtn = btn;
+
+    btn.classList.add('playing');
+    audio.play().catch(() => {
+      btn.classList.remove('playing');
+    });
+    audio.addEventListener('ended', () => {
+      btn.classList.remove('playing');
+      currentAudio = null;
+      currentBtn = null;
+    });
+  });
+});
+</script>
+</body>
+</html>
